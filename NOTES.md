@@ -15,5 +15,5 @@ The last one outputs nothing, so here is the encoding difference for all the oth
 - json, jsonfm, yaml, yamlfm, rawfm use unicodebig encoding
 - xml, xmlfm, php, phpfm, wddx, wddxfm, txt, txtfm, dbg, dbgfm, dump, dumpfm use utf-8 encoding
 
-Since this is a CLI script, UTF-8 is way more suitable. So it's not possible to use json or yaml (which produce the exact same output btw).
+Since this is a CLI script, UTF-8 is way more suitable. So it's not possible to use json or yaml (both produce the exact same output btw).
 In the end, the more handy format is txt.
