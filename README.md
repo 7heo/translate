@@ -1,7 +1,7 @@
 translate
 =========
 
-A small CLI translation tool in sh
+A small CLI translation tool in sh (and not in bash).
 
 Installation
 ------------
