@@ -3,6 +3,16 @@ translate
 
 A small CLI translation tool in sh
 
+Installation
+------------
+
+Place it in your $PATH.
+
+Usage
+-----
+
+    translate <from> <to> <word>
+
 Dependencies
 ------------
 
