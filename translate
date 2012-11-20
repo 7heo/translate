@@ -1,5 +1,6 @@
 #!/bin/sh
 # First, check if the domain exist, to know if the language exist.
+# If your ISP does DSN hijacking, configure the DNS here (else, you can leave the field empty).
 dnsServer="8.8.8.8"
 # check DNS
 IDN_DISABLE=t host $1.wiktionary.org $dnsServer > /dev/null
