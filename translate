@@ -1,16 +1,13 @@
 #!/bin/sh
+[ $# -ne 3 ] && echo "Usage: $0 <from> <to> <word>" && exit
 # First, check if the domain exist, to know if the language exist.
 # If your ISP does DNS hijacking, configure the DNS here (else, you can leave the field empty).
 dnsServer="8.8.8.8"
 # check DNS
 IDN_DISABLE=t host $1.wiktionary.org $dnsServer > /dev/null
 # Exit with error message if the domain doesn't solve.
-if [ $? -ne 0 ]
-then
-	echo "$1 is not a valid language"
-	exit
-fi
+[ $? -ne 0 ] && echo "$1 is not a valid language" && exit
 # Execute the request and place it in a sh variable. This is important since it's the easiest way I found to remove newlines (\n)
 res="`curl -Ss http://$1.wiktionary.org/w/api.php --data action=query --data format=txt --data prop=iwlinks --data iwlimit=30 --data iwprefix=$2 --data titles=$3 | grep '\*' | sed 's/[ ]*\[\*\] => //g'`"
 # Finally, display the result, formatted.
-echo $res | sed 's/ /, /g' | sed 's/_/ /g'
+[ "$res" != "" ] && echo $res | sed 's/ /, /g' | sed 's/_/ /g'
